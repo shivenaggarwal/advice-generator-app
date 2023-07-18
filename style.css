@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+:root{
+--color-text: hsl(193, 38%, 86%);
+--color-accent: hsl(150, 100%, 66%);
+--color-body-background: hsl(219, 22%, 16%);
+--color-card-background: hsl(217, 19%, 24%);
+}
+
+html{
+font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 800;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+}
+
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *,
+*::after,
+*::before{
+   animation-duration: 0.01ms !important;
+   animation-iteration-count: 1 !important;
+   transition-duration: 0.01ms !important;
+}
+}
+
+body{
+    margin: unset;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    background-color: var(--color-body-background);
+    color: var(--color-text);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+main{
+    max-width: 540px;
+    width: calc(100%- 32px);
+    padding:48px;
+    margin: 16px 16px 48px 16px;
+    background-color: var(--color-card-background);
+    box-shadow: 30px 50px 80px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--color-accent);
+    margin-block: 0 24px;
+}
+
+h1 span{
+    display: inline-block;
+}
+
+.quote-container{
+    overflow-x: hidden;
+    margin-inline: -48px;
+    padding-inline: 48px;
+}
+
+blockquote{
+    margin:unset;
+}
+
+blockquote:not(.has-error){
+    font-size: 28px;
+    letter-spacing: -0.3px;
+}
+
+blockquote:not(.has-error)::before{
+    content: '\“';
+}
+
+blockquote:not(.has-error)::after{
+    content: '\”';
+}
+
+hr{
+    border: unset;
+    height: 16px;
+    background: transparent url('images/pattern-divider-desktop.svg') no-repeat center;
+    margin-block: 40px;
+}
+
+button{
+    background-color: var(--color-accent);
+    width: 64px;
+    height: 64px;
+    padding: unset;
+    margin: unset;
+    border: unset;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50% , 50%);
+    color: var(--color-body-background);
+}
+
+button:hover{
+    animation: pulse 2s linear infinite;
+}
+
+button:focus-visible{
+    box-shadow: 0 0 40px var(--color-accent);
+    transition: box-shadow .2s linear;
+    outline: 2px solid var(--color-text);
+}   
+
+@media (max-width:500px){
+    main{
+        padding: 24px;
+    }
+
+    blockquote:not(.has-error){
+        font-size: 24px;
+    }
+
+    hr{
+         background-image: url('images/pattern-divider-mobile.svg');
+    }
+}
+
+
+@keyframes pulse {
+    0%{
+        box-shadow: 0 0 0px var(--color-accent);
+    }
+
+    50%{
+        box-shadow: 0 0 40px var(--color-accent);
+    }
+
+    100%{
+        box-shadow: 0 0 0px var(--color-accent);
+    }
+}
+
+.slide-out-x{
+    animation: slide-out-x 0.6s ease-in-out forwards;
+}
+
+.slide-in-x{
+    animation: slide-out-x 0.6s ease-in-out;
+}
+
+.slide-out-y {
+    animation: slide-out-y 0.4s ease-in-out forwards;
+  }
+  
+  .slide-in-y {
+    animation: slide-in-y 0.4s ease-in-out;
+  }
+  
+  .spin svg {
+    animation: spin 0.6s ease-out;
+  }
+
+@keyframes slide-out-x{
+    0%{
+        opacity: 1;
+    }
+
+    40%{
+        opacity: 1;
+        transform: scale(0.7);
+    }
+
+    100%{
+        opacity: 0;
+        transform: scale(0.7) translateX(70%);
+    }
+}
+
+@keyframes slide-in-x{
+    0%{
+        opacity: 0;
+        transform: scale(0.7) translateX(-70%);
+    }
+
+    70%{
+        opacity: 1;
+        transform: scale(0.7) translateX(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-out-y {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    to {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+  }
+  
+  @keyframes slide-in-y {
+    from {
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+
+
+
